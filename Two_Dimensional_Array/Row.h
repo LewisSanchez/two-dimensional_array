@@ -9,14 +9,14 @@ class Array2D;
 template <typename T>
 class Row
 {
-public:
-	Row(Array2D<T> & array2D, int row);
-	T & operator[] (int column);
-	const T & operator[] (int column) const;
+	public:
+		Row(Array2D<T> & array2D, int row);
+		T & operator[] (int column);
+		const T & operator[] (int column) const;
 
-private:
-	Array2D<T> & m_array2D;
-	int m_row;
+	private:
+		Array2D<T> & m_array2D;
+		int m_row;
 };
 
 template <typename T>
