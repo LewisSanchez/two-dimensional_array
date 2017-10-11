@@ -7,25 +7,25 @@
 template <typename T>
 class Array2D
 {
-public:
-	Array2D();
-	Array2D(int row, int col);
-	Array2D(const Array2D & copy);
-	~Array2D();
-	Array2D & operator= (const Array2D & rhs);
+	public:
+		Array2D();
+		Array2D(int row, int col);
+		Array2D(const Array2D & copy);
+		~Array2D();
+		Array2D & operator= (const Array2D & rhs);
 
-	Row<T> operator[] (int index);
-	Row<T> operator[] (int index) const;
-	int getRow();
-	void setRow(int rows);
-	int getColumn();
-	void setColumn(int columns);
-	T & Select(int row, int column);
+		Row<T> operator[] (int index);
+		const Row<T> operator[] (int index) const;
+		int getRow();
+		void setRow(int rows);
+		int getColumn();
+		void setColumn(int columns);
+		T & Select(int row, int column);
 
-private:
-	Array<T> m_array;
-	int m_row;
-	int m_col;
+	private:
+		Array<T> m_array;
+		int m_row;
+		int m_col;
 };
 
 template <typename T>
@@ -81,7 +81,7 @@ Row<T> Array2D<T>::operator[] (int index)
 }
 
 template <typename T>
-Row<T> Array2D<T>::operator[] (int index) const
+const Row<T> Array2D<T>::operator[] (int index) const
 {
 	if (index < 0)
 		throw Exception("Error: Index value cannot be negative");
@@ -112,7 +112,7 @@ void Array2D<T>::setRow(int rows)
 			new_array.Select(row, col) = this->Select(row, col);
 	}
 
-	this = new_array;
+	*this = new_array;
 	m_row = rows;
 }
 

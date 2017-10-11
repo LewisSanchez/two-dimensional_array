@@ -12,7 +12,7 @@ class Row
 public:
 	Row(Array2D<T> & array2D, int row);
 	T & operator[] (int column);
-	T operator[] (int column) const;
+	const T & operator[] (int column) const;
 
 private:
 	Array2D<T> & m_array2D;
@@ -33,7 +33,7 @@ T & Row<T>::operator[] (int column)
 }
 
 template <typename T>
-T Row<T>::operator[] (int column) const
+const T & Row<T>::operator[] (int column) const
 {
 	return m_array2D.Select(m_row, column);
 }
